@@ -1,9 +1,7 @@
 <template>
-    <div></div>
+    <div><h2>----------404--------</h2></div>
 </template>
 <script>
 export default {
-    mounted: function(){
-    }
 }
 </script>
