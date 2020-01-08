@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <common/>
-    <router-view/>
+    <layout/>
   </div>
 </template>
 
 <script>
-import common from './views/base/common'
+import layout from './views/base/layout'
 export default {
   name: 'App',
   components: {
-    common
+    layout
   }
 }
 </script>

@@ -5,6 +5,7 @@ import Login from '../views/Login'
 import Home from '../views/Home'
 import NotFound from '../views/404'
 import Test from '../views/Test'
+import Sspp from '../views/Sspp'
 
 Vue.use(Router)
 
@@ -36,6 +37,13 @@ export default new Router({
       component: Test,
       meta: {
         title: '测试'
+      }
+    },
+    {
+      path: '/sspp',
+      component: Sspp,
+      meta: {
+        title: 'sspp'
       }
     },
     {
