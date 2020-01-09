@@ -101,10 +101,14 @@ export default {
     },
     methods: {
         openUrl: function(urlList, keyword){
-            if (typeof(keyword) == undefined){
+            if (typeof(keyword) === 'undefined'){
                 keyword = ''
             }
-            keyword = $URL.encode(keyword)
+
+            if (keyword.length > 0){
+                keyword = $URL.encode(keyword)
+            }
+            
             for (let item in urlList) {
                 window.open(urlList[item].replace('@keyword@', keyword))
             }
