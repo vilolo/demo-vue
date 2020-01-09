@@ -1,23 +1,40 @@
 urlList = {
     toolUrls: [
-        'https://www.baidu.com'
+        'http://198.35.45.87:7090/shop/my.html',
+        'http://198.35.45.87:7090/shop/getprice.html',
+		'https://translate.google.cn',
+		'https://translate.google.cn',
+		'https://www.dianxiaomi.com/crawl/index.htm',
+		'https://trends.google.com/trends/?geo=MY',
+		'https://trends.google.com/trends/?geo=TW',
+		'https://ads.google.com/aw/keywordplanner/home?ocid=344080210&euid=346009892&__u=8083458308&uscid=344080210&__c=7608148290&authuser=1',
+		'http://www.haiyingshuju.com/newsShopee/index.html#/shopee/goodsSearch',
     ],
     enKeywordUrls: [
-        'https://www.baidu.com/s?wd=@keyword@&rsv_spt=1&rsv_iqid=0xfc9e137b00057bc7&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&rsv_sug3=6&rsv_sug1=5&rsv_sug7=101&rsv_sug2=0&inputT=1032&rsv_sug4=2782',
-        'https://cn.bing.com/search?q=@keyword@&qs=n&form=QBLH&sp=-1&pq=wahh&sc=8-4&sk=&cvid=3FC502C24D434BB2AF75765A77EBBBA0'
+		'https://shopee.com.my/search?keyword=@keyword@',
+		'https://www.lazada.com.my/catalog/?q=@keyword@',
     ],
     cnKeywordUrls: [
-        'https://www.baidu.com/s?wd=@keyword@&rsv_spt=1&rsv_iqid=0xfc9e137b00057bc7&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&rsv_sug3=6&rsv_sug1=5&rsv_sug7=101&rsv_sug2=0&inputT=1032&rsv_sug4=2782',
+		'https://s.taobao.com/search?q=@keyword@',
+		'https://s.1688.com/selloffer/offer_search.htm?keywords=@keyword@',
+		'https://s.1688.com/kuajing/offer_search.htm?keywords=@keyword@',
     ],
     fantiKeywordUrls: [
-        'https://www.baidu.com/s?wd=@keyword@&rsv_spt=1&rsv_iqid=0xfc9e137b00057bc7&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=tb&rsv_sug3=6&rsv_sug1=5&rsv_sug7=101&rsv_sug2=0&inputT=1032&rsv_sug4=2782',
+        'https://xiapi.xiapibuy.com/search?keyword=@keyword@',
     ],
     categoryUrls: [
-        'https://www.baidu.com',
+        'https://seller.shopee.com.my/portal/categories',
+		'https://seller.xiapi.shopee.cn/portal/categories',
     ],
     categoryKeywordUrls: [
-        'https://www.baidu.com/s?wd=@keyword@',
+        //'https://www.baidu.com/s?wd=@keyword@',
     ],
-    mUrl: 'https://www.baidu.com',
-    tUrl: 'https://cn.bing.com',
+    mUrl: 'https://shopee.com.my/search',
+    tUrl: 'https://xiapi.xiapibuy.com/search',
+
+    myCategoryCodeUrl: ['https://shopee.com.my/search?facet=@keyword@'],
+    twCategoryCodeUrl: ['https://xiapi.xiapibuy.com/search?facet=@keyword@'],
+
+    myCategoryListUrl: 'https://seller.shopee.com.my/portal/categories',
+    twCategoryListUrl: 'https://seller.xiapi.shopee.cn/portal/categories',
 };
