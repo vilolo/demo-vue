@@ -68,6 +68,16 @@ export default {
                         }
                     ]
                     // new_target: false
+                },{
+                    name: 'BaseTable',
+                    url: '/BaseTable',
+                    icon: '',
+                    submenu:[]
+                },{
+                    name: 'DataTable',
+                    url: '/DataTable',
+                    icon: '',
+                    submenu:[]
                 }]
         }
     },

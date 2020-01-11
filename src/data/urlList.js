@@ -21,8 +21,8 @@ urlList = {
     mUrl: 'https://www.baidu.com',
     tUrl: 'https://cn.bing.com',
 
-    myCategoryCodeUrl: ['https://shopee.com.my/search?facet=@keyword@'],
-    twCategoryCodeUrl: ['https://shopee.com.my/search?facet=@keyword@'],
+    myCategoryCodeUrl: ['https://www.baidu.com'],
+    twCategoryCodeUrl: ['https://www.baidu.com'],
 
     myCategoryListUrl: 'https://www.baidu.com',
     twCategoryListUrl: 'https://www.baidu.com',

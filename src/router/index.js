@@ -6,6 +6,8 @@ import Home from '../views/Home'
 import NotFound from '../views/404'
 import Test from '../views/Test'
 import Sspp from '../views/Sspp'
+import BaseTable from '../views/BaseTable'
+import DataTable from '../views/DataTable'
 
 Vue.use(Router)
 
@@ -44,6 +46,20 @@ export default new Router({
       component: Sspp,
       meta: {
         title: 'sspp'
+      }
+    },
+    {
+      path: '/BaseTable',
+      component: BaseTable,
+      meta: {
+        title: 'BaseTable'
+      }
+    },
+    {
+      path: '/DataTable',
+      component: DataTable,
+      meta: {
+        title: 'DataTable'
       }
     },
     {
