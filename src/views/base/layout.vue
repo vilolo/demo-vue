@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app sidebar-mini  pace-done">
         <template v-if="this.$route.path.toLowerCase() != '/login'">
             <header class="app-header"><a class="app-header__logo" href="index.html">Vali</a>
             <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
