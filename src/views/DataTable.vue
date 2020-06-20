@@ -35,7 +35,7 @@
                       <td>{{item.column4}}</td>
                       <td>{{item.column5}}</td>
                       <td>{{item.column6}}</td>
-                    </tr> 
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -46,8 +46,8 @@
     </div>
 </template>
 <script>
-import 'datatables'
-import '../assets/js/plugins/dataTables.bootstrap.min.js'
+//import 'datatables'
+//import '../assets/js/plugins/dataTables.bootstrap.min.js'
 export default {
     data: function(){
         return {

@@ -15,15 +15,15 @@ export const requestLogin = function () {
 }
 
 export const testLogin = function (username, password) {
-    console.log(username, password)
+  console.log(username, password)
 
-//   proxyTable代理形式 同时修改文件： config/index.js   main.js
-//   return axios.get('/index/testLogin').then(function (res) {
-//     console.log(res)
-//     return res.data
-//   })
+  //   proxyTable代理形式 同时修改文件： config/index.js   main.js
+  //   return axios.get('/index/testLogin').then(function (res) {
+  //     console.log(res)
+  //     return res.data
+  //   })
 
-//   后端配置允许跨域
+  //   后端配置允许跨域
   return axios.get('http://demo.local/index.php/index/index/testLogin').then(function (res) {
     console.log(res)
     return res.data
