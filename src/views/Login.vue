@@ -50,7 +50,6 @@
 </div>
 </template>
 <script>
-import { testLogin } from '../api/api'
 export default {
   data () {
       return {
@@ -60,7 +59,7 @@ export default {
   },
   methods: {
       doLogin: function(){
-          testLogin(this.username, this.password).then(res => {
+          this.$api.doLogin(this.username, this.password).then(res => {
               if (res.code === 200){
                   this.$router.push('/')
               }

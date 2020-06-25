@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import * as con from './common/constants'
+import api from './api/api'
 // import $ from 'jquery'
 // Vue.prototype.$ = jquery
 
@@ -13,6 +15,11 @@ import jquery from 'jquery'
 
 // step1：引入 axios
 import axios from 'axios'
+
+Vue.prototype.$axios = axios
+Vue.prototype.$con = con
+Vue.prototype.$api = api
+
 window.jquery = window.$ = jquery
 
 // step2：把axios挂载到vue的原型中，在vue中每个组件都可以使用axios发送请求,
@@ -21,7 +28,7 @@ window.jquery = window.$ = jquery
 
 // step3：使每次请求都会带一个 /api 前缀
 axios.defaults.baseURL = '/api'
-
+axios.defaults.withCredentials = true
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

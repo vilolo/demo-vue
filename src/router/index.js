@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Login from '../views/Login'
+import Login from '@/views/Login'
 import Home from '../views/Home'
 import NotFound from '../views/404'
 import Test from '../views/Test'
 import Sspp from '../views/Sspp'
 import BaseTable from '../views/BaseTable'
 import DataTable from '../views/DataTable'
+import Company from '../views/Company'
 
 Vue.use(Router)
 
@@ -24,7 +24,8 @@ export default new Router({
       path: '/login',
       component: Login,
       meta: {
-        title: '登陆'
+        title: '登陆',
+        noAuth: true
       }
     },
     {
@@ -60,6 +61,13 @@ export default new Router({
       component: DataTable,
       meta: {
         title: 'DataTable'
+      }
+    },
+    {
+      path: '/Company',
+      component: Company,
+      meta: {
+        title: 'Company'
       }
     },
     {

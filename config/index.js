@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {
       // 跨域处理
       '/api':{
-        target: "http://demo.local/index.php/index/",
+        target: "http://lcxyii.back/index.php/",
         changeOrigin:true,
         pathRewrite:{
           '^/api':''

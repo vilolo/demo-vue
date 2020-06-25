@@ -46,8 +46,8 @@
     </div>
 </template>
 <script>
-//import 'datatables'
-//import '../assets/js/plugins/dataTables.bootstrap.min.js'
+import '../assets/plugins/datatables/jquery.dataTables.min.js'
+import '../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'
 export default {
     data: function(){
         return {
@@ -210,3 +210,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+@import url('../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css');
+</style>

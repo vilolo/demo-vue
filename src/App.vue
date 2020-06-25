@@ -1,15 +1,18 @@
 <template>
   <div id="app">
+    <common/>
     <layout/>
   </div>
 </template>
 
 <script>
 import layout from './views/base/layout'
+import common from './views/base/common'
 export default {
   name: 'App',
   components: {
-    layout
+    layout,
+    common
   }
 }
 </script>

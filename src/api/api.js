@@ -1,31 +1,45 @@
 import axios from 'axios'
+import qs from 'qs'
 
-let baseUrl = 'http://192.168.201.235'
+let baseUrl = 'http://lcxyii.back/index.php'
 
-// export const requestLogin = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
-export const requestLogin = function () {
-  return axios.get(`${baseUrl}/v2/Login/doLogin`).then(function (res) {
-    // console.log(`${baseUrl}/v2/Login/doLogin`)
-    // console.log(res.data)
-    return res.data
-  }).catch(function (err) {
-    console.log('axios err')
-    console.log(err)
-  })
-}
+export default {
+  doLogin (username, password) {
+    let data = {'username': username, 'password': password}
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/logins'
+    }).then(function (res) {
+      return res.data
+    })
+  },
 
-export const testLogin = function (username, password) {
-  console.log(username, password)
+  getCompanyInfo () {
+    return axios({
+      method: 'get',
+      url: baseUrl + '/v1/company-info/get-info'
+    }).then(function (res) {
+      return res.data
+    })
+  },
 
-  //   proxyTable代理形式 同时修改文件： config/index.js   main.js
-  //   return axios.get('/index/testLogin').then(function (res) {
-  //     console.log(res)
-  //     return res.data
-  //   })
+  subCompany (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/company-info/update'
+    }).then(function (res) {
+      return res.data
+    })
+  },
 
-  //   后端配置允许跨域
-  return axios.get('http://demo.local/index.php/index/index/testLogin').then(function (res) {
-    console.log(res)
-    return res.data
-  })
+  logout () {
+    return axios({
+      method: 'post',
+      url: baseUrl + '/v1/login/logout'
+    }).then(function (res) {
+      return res.data
+    })
+  }
 }

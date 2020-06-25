@@ -14,7 +14,7 @@
                 <li v-if="!item.submenu || item.submenu.length == 0" v-bind:key="index">
                     <router-link v-if="!item.submenu || item.submenu.length == 0" class="app-menu__item" :class="curUrl === item.url.toLowerCase() ? 'active' : ''" :target="item.new_target ? '_blank' : ''" :to='item.url'>
                         <i class="app-menu__icon fa" :class="item.icon ? item.icon : 'fa-dashboard'"></i>
-                        <span class="app-menu__label">{{item.name}}=={{curUrl}}=={{item.url}}</span>
+                        <span class="app-menu__label">{{item.name}}</span>
                     </router-link>
                 </li>
                 <li v-else v-bind:key="index" class="treeview">
@@ -43,42 +43,59 @@ export default {
                     url: '/Home',
                     icon: 'fa-laptop',
                     // new_target: true
-                },{
-                    name: '菜单一',
-                    url: '/test',
-                    icon: 'fa-laptop',
-                    // new_target: true
-                },{
-                    name: '菜单二',
-                    url: '/login',
-                    icon: '',
-                    submenu: []
-                    // new_target: false
                 },
                 {
-                    name: '菜单三',
+                    name: '公司信息',
+                    url: '/Company',
+                    icon: 'fa-laptop',
+                },
+                {
+                    name: '菜单配置',
+                    url: '/Home',
+                    icon: 'fa-laptop',
+                },
+                {
+                    name: '栏位配置',
                     url: '/login',
                     icon: '',
                     submenu:[
                         {
-                            name: 'tttest',
+                            name: 'banner配置',
                             url: '/sspp',
                             icon: '',
-                            // new_target: false
-                        }
+                        },
+                        {
+                            name: '轮播图配置',
+                            url: '/sspp',
+                            icon: '',
+                        },
+                        {
+                            name: '产品列表',
+                            url: '/sspp',
+                            icon: '',
+                        },
                     ]
-                    // new_target: false
-                },{
-                    name: 'BaseTable',
-                    url: '/BaseTable',
+                },
+                {
+                    name: '文章管理',
+                    url: '/login',
                     icon: '',
-                    submenu:[]
-                },{
-                    name: 'DataTable',
-                    url: '/DataTable',
-                    icon: '',
-                    submenu:[]
-                }]
+                },
+
+
+                // {
+                //     name: '菜单三',
+                //     url: '/login',
+                //     icon: '',
+                //     submenu:[
+                //         {
+                //             name: 'sspp',
+                //             url: '/sspp',
+                //             icon: '',
+                //         }
+                //     ]
+                // },
+                ]
         }
     },
 
