@@ -51,7 +51,7 @@ export default {
                 },
                 {
                     name: '菜单配置',
-                    url: '/Home',
+                    url: '/Navigation',
                     icon: 'fa-laptop',
                 },
                 {
@@ -78,7 +78,7 @@ export default {
                 },
                 {
                     name: '文章管理',
-                    url: '/login',
+                    url: '/Article',
                     icon: '',
                 },
 

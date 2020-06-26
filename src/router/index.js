@@ -8,6 +8,9 @@ import Sspp from '../views/Sspp'
 import BaseTable from '../views/BaseTable'
 import DataTable from '../views/DataTable'
 import Company from '../views/Company'
+import Navigation from '../views/Navigation'
+import NavigationSave from '../views/NavigationSave'
+import Article from '../views/Article'
 
 Vue.use(Router)
 
@@ -68,6 +71,27 @@ export default new Router({
       component: Company,
       meta: {
         title: 'Company'
+      }
+    },
+    {
+      path: '/Navigation',
+      component: Navigation,
+      meta: {
+        title: 'Navigation'
+      }
+    },
+    {
+      path: '/NavigationSave',
+      component: NavigationSave,
+      meta: {
+        title: 'NavigationSave'
+      }
+    },
+    {
+      path: '/Article',
+      component: Article,
+      meta: {
+        title: 'Article'
       }
     },
     {

@@ -8,10 +8,10 @@ import api from './api/api'
 // import $ from 'jquery'
 // Vue.prototype.$ = jquery
 
-import 'bootstrap/dist/js/bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 import jquery from 'jquery'
+
+import 'bootstrap/dist/js/bootstrap.bundle.min'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 // step1：引入 axios
 import axios from 'axios'

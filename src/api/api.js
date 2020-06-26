@@ -28,7 +28,7 @@ export default {
     return axios({
       method: 'post',
       data: qs.stringify(data),
-      url: baseUrl + '/v1/company-info/update'
+      url: baseUrl + '/v1/company-info/update-info'
     }).then(function (res) {
       return res.data
     })
@@ -36,8 +36,38 @@ export default {
 
   logout () {
     return axios({
-      method: 'post',
+      method: 'get',
       url: baseUrl + '/v1/login/logout'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getNavigationList (data) {
+    return axios({
+      method: 'get',
+      params: data,
+      url: baseUrl + '/v1/navigation/list'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getNavigationDetail (data) {
+    return axios({
+      method: 'get',
+      params: data,
+      url: baseUrl + '/v1/navigation/get-detail'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  subNavigation (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/navigation/do-save'
     }).then(function (res) {
       return res.data
     })

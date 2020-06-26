@@ -59,7 +59,7 @@ export default {
 
     doSubmit(){
       let postData = this.$data
-      //delete postData.logoShow
+      delete postData.logoShow
       this.$api.subCompany(postData).then(res => {
         console.log(res)
       })
