@@ -3,12 +3,7 @@
         <!-- Sidebar menu-->
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
         <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
-            <div>
-            <p class="app-sidebar__user-name">John Doe</p>
-            <p class="app-sidebar__user-designation">Frontend Developer</p>
-            </div>
-        </div>
+
         <ul class="app-menu">
             <template v-for="(item, index) in menu" >
                 <li v-if="!item.submenu || item.submenu.length == 0" v-bind:key="index">
@@ -55,31 +50,19 @@ export default {
                     icon: 'fa-laptop',
                 },
                 {
-                    name: '栏位配置',
-                    url: '/login',
-                    icon: '',
-                    submenu:[
-                        {
-                            name: 'banner配置',
-                            url: '/sspp',
-                            icon: '',
-                        },
-                        {
-                            name: '轮播图配置',
-                            url: '/sspp',
-                            icon: '',
-                        },
-                        {
-                            name: '产品列表',
-                            url: '/sspp',
-                            icon: '',
-                        },
-                    ]
-                },
-                {
                     name: '文章管理',
                     url: '/Article',
-                    icon: '',
+                    icon: 'fa-laptop',
+                },
+                {
+                    name: '图文配置',
+                    url: '/ImgDesc',
+                    icon: 'fa-laptop',
+                },
+                {
+                    name: '客户留言',
+                    url: '/CustomerMessage',
+                    icon: 'fa-laptop',
                 },
 
 

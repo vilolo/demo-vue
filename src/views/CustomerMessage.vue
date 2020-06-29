@@ -14,35 +14,31 @@
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <div class="tile">
-              <router-link to="/NavigationSave" class="btn btn-success">添加导航</router-link>
-            </div>
             <div class="tile-body">
               <div class="table-responsive">
                 <table class="table table-hover table-bordered" id="sampleTable">
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Url</th>
-                      <th>状态</th>
-                      <th>排序</th>
+                      <th>email</th>
+                      <th>主题</th>
+                      <th>消息留言</th>
+                      <th>ip</th>
+                      <th>ip位置信息</th>
                       <th>创建时间</th>
                       <th>修改时间</th>
-                      <th>操作</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="item in tableData" v-bind:key="item.id">
-                      <td><span v-if="item.level>0">└ ——</span>{{item.name}}</td>
-                      <td>{{item.url}}</td>
-                      <td>{{item.status}}</td>
-                      <td>{{item.sort}}</td>
+                      <td>{{item.name}}</td>
+                      <td>{{item.email}}</td>
+                      <td>{{item.subject}}</td>
+                      <td>{{item.message}}</td>
+                      <td>{{item.ip}}</td>
+                      <td>{{item.position}}</td>
                       <td>{{item.created_at}}</td>
                       <td>{{item.updated_at}}</td>
-                      <td><router-link :to="{path:'/NavigationSave',
-                      query:{id:item.id}
-                      }"
-                      class="btn btn-primary">编辑</router-link></td>
                     </tr>
                   </tbody>
                 </table>
@@ -65,7 +61,7 @@ export default {
     },
 
     mounted: function(){
-      this.$api.getNavigationList().then(res => {
+      this.$api.getCustomerMessageList().then(res => {
         this.tableData = res.data
       }).then(res => {
         this.dt = $("#sampleTable").DataTable({
@@ -75,7 +71,7 @@ export default {
     },
 
     activated: function(){
-      this.$api.getNavigationList().then(res => {
+      this.$api.getCustomerMessageList().then(res => {
         this.tableData = res.data
       }).then(res => {
         this.dt.reload()

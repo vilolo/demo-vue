@@ -11,6 +11,10 @@ import Company from '../views/Company'
 import Navigation from '../views/Navigation'
 import NavigationSave from '../views/NavigationSave'
 import Article from '../views/Article'
+import ArticleSave from '../views/ArticleSave'
+import ImgDesc from '../views/ImgDesc'
+import ImgDescSave from '../views/ImgDescSave'
+import CustomerMessage from '../views/CustomerMessage'
 
 Vue.use(Router)
 
@@ -92,6 +96,34 @@ export default new Router({
       component: Article,
       meta: {
         title: 'Article'
+      }
+    },
+    {
+      path: '/ArticleSave',
+      component: ArticleSave,
+      meta: {
+        title: 'ArticleSave'
+      }
+    },
+    {
+      path: '/ImgDesc',
+      component: ImgDesc,
+      meta: {
+        title: 'ImgDesc'
+      }
+    },
+    {
+      path: '/ImgDescSave',
+      component: ImgDescSave,
+      meta: {
+        title: 'ImgDescSave'
+      }
+    },
+    {
+      path: '/CustomerMessage',
+      component: CustomerMessage,
+      meta: {
+        title: 'CustomerMessage'
       }
     },
     {

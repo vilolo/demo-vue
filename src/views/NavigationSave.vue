@@ -14,8 +14,16 @@
           <input v-model="name"  :key="this.id" class="form-control" id="navigation-name" type="text" placeholder="">
         </div>
         <div class="form-group">
-          <label for="navigation-name">url</label>
+          <label for="navigation-name">url —— 自定义</label>
           <input v-model="url" class="form-control" id="navigation-name" type="text" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label>url —— 选择文章</label>
+          <select @change="selArticle" class="custom-select" :key="this.id">
+            <option value="0">--选择文章--</option>
+            <option v-for="(item, i) in articleList" v-bind:value="item.id" v-bind:key="i">{{item.title}}</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -48,6 +56,7 @@ export default {
   data() {
     return {
       topLevelList: [],
+      articleList: [],
 
       id: 0,
       name: '',
@@ -77,6 +86,11 @@ export default {
     this.$api.getNavigationList({level:0}).then(res => {
       this.topLevelList = res.data
     })
+
+    this.$api.getArticleSelectList().then(res => {
+      this.articleList = res.data
+      console.log(this.articleList)
+    })
   },
 
   methods: {
@@ -88,7 +102,13 @@ export default {
           this.$router.push('/Navigation')
         }
       })
+    },
+
+    selArticle: function (e) {
+      this.url = '/index.php/article?id=' + e.target.value
     }
   }
+
+
 }
 </script>

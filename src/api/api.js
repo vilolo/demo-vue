@@ -71,5 +71,83 @@ export default {
     }).then(function (res) {
       return res.data
     })
+  },
+
+  subArticle (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/article/do-save'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getArticleList (data) {
+    return axios({
+      method: 'get',
+      params: data,
+      url: baseUrl + '/v1/article/list'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getArticleDetail (data) {
+    return axios({
+      method: 'get',
+      params: data,
+      url: baseUrl + '/v1/article/get-detail'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  subImgDesc (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/img-desc/do-save'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getImgDescList (data) {
+    return axios({
+      method: 'get',
+      params: data,
+      url: baseUrl + '/v1/img-desc/list'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getImgDescDetail (data) {
+    return axios({
+      method: 'get',
+      params: data,
+      url: baseUrl + '/v1/img-desc/detail'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getArticleSelectList () {
+    return axios({
+      method: 'get',
+      url: baseUrl + '/v1/article/get-select-list'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
+  getCustomerMessageList () {
+    return axios({
+      method: 'get',
+      url: baseUrl + '/v1/customer-message/list'
+    }).then(function (res) {
+      return res.data
+    })
   }
 }

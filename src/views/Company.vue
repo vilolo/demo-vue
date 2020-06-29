@@ -3,15 +3,23 @@
     <div class="card-body">
       <div class="form-group">
         <label for="company-name">公司名</label>
-        <input v-model="name" class="form-control" id="company-name" type="text" placeholder="Company name">
+        <input v-model="name" class="form-control" id="company-name" type="text" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="description">简述</label>
+        <input v-model="description" class="form-control" id="description" type="text" placeholder="">
       </div>
       <div class="form-group">
         <label for="email">邮箱</label>
-        <input v-model="email" class="form-control" id="email" type="email" placeholder="Enter email">
+        <input v-model="email" class="form-control" id="email" type="text" placeholder="">
       </div>
       <div class="form-group">
         <label for="phone">电话</label>
-        <input v-model="phone" class="form-control" id="phone" type="phone" placeholder="Enter phone">
+        <input v-model="phone" class="form-control" id="phone" type="phone" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="address">地址</label>
+        <input v-model="address" class="form-control" id="address" type="text" placeholder="">
       </div>
       <div class="form-group">
         <label for="exampleInputFile">LOGO</label>
@@ -41,7 +49,9 @@ export default {
       email: "",
       phone: "",
       logo: "",
-      fileName: ""
+      fileName: "",
+      description: "",
+      address: ""
     }
   },
   methods: {
@@ -71,6 +81,8 @@ export default {
       this.$data.email = res.data.email
       this.$data.name = res.data.name
       this.$data.logo = res.data.logo
+      this.$data.description = res.data.description
+      this.$data.address = res.data.address
     })
   }
 }
