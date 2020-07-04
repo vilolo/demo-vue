@@ -18,6 +18,8 @@
           <option value="2">小Banner（1920*300）</option>
           <option value="3">产品图1（600*500）</option>
           <option value="4">轮播图1（600*400）</option>
+          <option value="5">标题加文字</option>
+          <option value="6">文字介绍</option>
         </select>
       </div>
 

@@ -3,6 +3,8 @@ import qs from 'qs'
 
 let baseUrl = 'http://lcxyii.back/index.php'
 
+// let baseUrl = 'http://198.35.45.87:9071/index.php'
+
 export default {
   doLogin (username, password) {
     let data = {'username': username, 'password': password}
