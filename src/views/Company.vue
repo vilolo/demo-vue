@@ -10,6 +10,10 @@
         <input v-model="description" class="form-control" id="description" type="text" placeholder="">
       </div>
       <div class="form-group">
+        <label for="introduce">介绍</label>
+        <input v-model="introduce" class="form-control" id="introduce" type="text" placeholder="">
+      </div>
+      <div class="form-group">
         <label for="email">邮箱</label>
         <input v-model="email" class="form-control" id="email" type="text" placeholder="">
       </div>
@@ -51,7 +55,8 @@ export default {
       logo: "",
       fileName: "",
       description: "",
-      address: ""
+      address: "",
+      introduce: ""
     }
   },
   methods: {
@@ -83,6 +88,7 @@ export default {
       this.$data.logo = res.data.logo
       this.$data.description = res.data.description
       this.$data.address = res.data.address
+      this.$data.introduce = res.data.introduce
     })
   }
 }

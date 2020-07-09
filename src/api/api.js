@@ -1,7 +1,9 @@
 import axios from 'axios'
 import qs from 'qs'
 
-let baseUrl = 'http://lcxyii.back/index.php'
+//let baseUrl = 'http://lcxyii.back/index.php'
+
+let baseUrl = 'http://apitest.local/index.php'
 
 // let baseUrl = 'http://198.35.45.87:9071/index.php'
 
@@ -148,6 +150,14 @@ export default {
     return axios({
       method: 'get',
       url: baseUrl + '/v1/customer-message/list'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+  getImgDescCategoryList () {
+    return axios({
+      method: 'get',
+      url: baseUrl + '/v1/img-desc/get-category'
     }).then(function (res) {
       return res.data
     })

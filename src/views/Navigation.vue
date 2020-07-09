@@ -33,7 +33,7 @@
                   </thead>
                   <tbody>
                     <tr v-for="item in tableData" v-bind:key="item.id">
-                      <td><span v-if="item.level>0">└ ——</span>{{item.name}}</td>
+                      <td><span v-if="item.level>0">└</span>{{item.name}}</td>
                       <td>{{item.url}}</td>
                       <td>{{item.status}}</td>
                       <td>{{item.sort}}</td>

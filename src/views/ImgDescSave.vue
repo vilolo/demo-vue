@@ -13,13 +13,8 @@
 
       <div class="form-group">
         <label>分类</label>
-        <select v-model="category_id" class="custom-select">
-          <option value="1">大Banner（1920*900）</option>
-          <option value="2">小Banner（1920*300）</option>
-          <option value="3">产品图1（600*500）</option>
-          <option value="4">轮播图1（600*400）</option>
-          <option value="5">标题加文字</option>
-          <option value="6">文字介绍</option>
+        <select v-model="category_id" class="custom-select" :key="this.id">
+          <option v-for="(item, i) in categoryList" v-bind:value="item.id" v-bind:key="i">{{item.name}}</option>
         </select>
       </div>
 
@@ -77,7 +72,9 @@ export default {
       btn_name: '',
       img: "",
       fileName: "",
-      category_id: ""
+      category_id: "",
+
+      categoryList:[]
     }
   },
   methods: {
@@ -124,6 +121,10 @@ export default {
 
     this.$api.getNavigationList({level:0}).then(res => {
       this.topLevelList = res.data
+    })
+
+    this.$api.getImgDescCategoryList().then(res => {
+      this.categoryList = res.data
     })
   },
 }
