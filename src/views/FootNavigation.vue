@@ -15,20 +15,17 @@
         <div class="col-md-12">
           <div class="tile">
             <div class="tile">
-              <router-link to="/ImgDescSave" class="btn btn-success">添加图文</router-link>
+              <router-link to="/FootNavigationSave" class="btn btn-success">添加导航</router-link>
             </div>
             <div class="tile-body">
               <div class="table-responsive">
                 <table class="table table-hover table-bordered" id="sampleTable">
                   <thead>
                     <tr>
-                      <th>图片</th>
-                      <th>分类</th>
-                      <th>描述1</th>
-                      <th>描述2</th>
-                      <th>按钮名</th>
-                      <th>url</th>
+                      <th>Name</th>
+                      <th>Url</th>
                       <th>状态</th>
+                      <th>排序</th>
                       <th>创建时间</th>
                       <th>修改时间</th>
                       <th>操作</th>
@@ -36,16 +33,13 @@
                   </thead>
                   <tbody>
                     <tr v-for="item in tableData" v-bind:key="item.id">
-                      <td><img :src="item.img" height="100" /></td>
-                      <td>{{item.category_name}}</td>
-                      <td>{{item.desc1}}</td>
-                      <td>{{item.desc2}}</td>
-                      <td>{{item.btn_name}}</td>
+                      <td><span v-if="item.level>0">└</span>{{item.name}}</td>
                       <td>{{item.url}}</td>
                       <td>{{item.status}}</td>
+                      <td>{{item.sort}}</td>
                       <td>{{item.created_at}}</td>
                       <td>{{item.updated_at}}</td>
-                      <td><router-link :to="{path:'/ImgDescSave',
+                      <td><router-link :to="{path:'/FootNavigationSave',
                       query:{id:item.id}
                       }"
                       class="btn btn-primary">编辑</router-link></td>
@@ -71,7 +65,7 @@ export default {
   },
 
   mounted: function () {
-    this.$api.getImgDescList().then(res => {
+    this.$api.getFootNavigationList().then(res => {
       this.tableData = res.data
     }).then(res => {
       this.dt = $('#sampleTable').DataTable({
@@ -81,7 +75,7 @@ export default {
   },
 
   activated: function () {
-    this.$api.getImgDescList().then(res => {
+    this.$api.getFootNavigationList().then(res => {
       this.tableData = res.data
     }).then(res => {
       this.dt.reload()

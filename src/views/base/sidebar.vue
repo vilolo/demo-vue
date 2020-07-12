@@ -29,7 +29,7 @@
 </template>
 <script>
 export default {
-    data: function(){
+    data: function () {
         return {
             curUrl: this.$route.path,
             menu: [
@@ -42,12 +42,17 @@ export default {
                 {
                     name: '公司信息',
                     url: '/Company',
-                    icon: 'fa-laptop',
+                    icon: 'fa-laptop'
                 },
                 {
-                    name: '菜单配置',
+                    name: '导航菜单配置',
                     url: '/Navigation',
-                    icon: 'fa-laptop',
+                    icon: 'fa-laptop'
+                },
+                {
+                    name: '底部菜单配置',
+                    url: '/FootNavigation',
+                    icon: 'fa-laptop'
                 },
                 {
                     name: '文章管理',
@@ -62,6 +67,11 @@ export default {
                 {
                     name: '客户留言',
                     url: '/CustomerMessage',
+                    icon: 'fa-laptop',
+                },
+                {
+                    name: '底部文章链接设置',
+                    url: '/News',
                     icon: 'fa-laptop',
                 },
 

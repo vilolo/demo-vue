@@ -15,6 +15,9 @@ import ArticleSave from '../views/ArticleSave'
 import ImgDesc from '../views/ImgDesc'
 import ImgDescSave from '../views/ImgDescSave'
 import CustomerMessage from '../views/CustomerMessage'
+import News from '../views/News'
+import FootNavigation from '../views/FootNavigation'
+import FootNavigationSave from '../views/FootNavigationSave'
 
 Vue.use(Router)
 
@@ -124,6 +127,27 @@ export default new Router({
       component: CustomerMessage,
       meta: {
         title: 'CustomerMessage'
+      }
+    },
+    {
+      path: '/News',
+      component: News,
+      meta: {
+        title: 'News'
+      }
+    },
+    {
+      path: '/FootNavigation',
+      component: FootNavigation,
+      meta: {
+        title: 'FootNavigation'
+      }
+    },
+    {
+      path: '/FootNavigationSave',
+      component: FootNavigationSave,
+      meta: {
+        title: 'FootNavigationSave'
       }
     },
     {

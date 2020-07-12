@@ -62,7 +62,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       id: 0,
       desc1: "",

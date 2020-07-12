@@ -4,9 +4,8 @@
       <div class="card-body">
         <div class="form-group">
           <label>上级导航</label>
-          <select v-model="pid" class="custom-select" :key="this.id">
-            <option value="0">--为一级菜单--</option>
-            <option v-for="(item, i) in topLevelList" v-bind:value="item.id" v-bind:key="i">{{item.name}}</option>
+          <select v-model="level" class="custom-select" :key="this.id">
+            <option value="-1">--为底部导航--</option>
           </select>
         </div>
         <div class="form-group">
@@ -61,7 +60,7 @@ export default {
       id: 0,
       name: '',
       url: '',
-      level: 0,
+      level: -1,
       sort: 50,
       pid: 0,
       status: 1
@@ -78,7 +77,6 @@ export default {
         this.name = res.data.name
         this.url = res.data.url
         this.level = res.data.level
-        this.pid = res.data.pid
         this.status = res.data.status
       })
     }
@@ -98,7 +96,7 @@ export default {
       this.$api.subNavigation(postData).then(res => {
         alert(res.msg)
         if (res.code === 200) {
-          this.$router.push('/Navigation')
+          this.$router.push('/FootNavigation')
         }
       })
     },

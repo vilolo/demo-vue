@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label for="introduce">介绍</label>
-        <input v-model="introduce" class="form-control" id="introduce" type="text" placeholder="">
+        <textarea  style="height:100px" v-model="introduce" class="form-control" id="introduce"></textarea>
       </div>
       <div class="form-group">
         <label for="email">邮箱</label>
@@ -25,6 +25,28 @@
         <label for="address">地址</label>
         <input v-model="address" class="form-control" id="address" type="text" placeholder="">
       </div>
+
+      <div class="form-group">
+        <label for="facebook">facebook</label>
+        <input v-model="facebook" class="form-control" id="facebook" type="text" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="twitter">twitter</label>
+        <input v-model="twitter" class="form-control" id="twitter" type="text" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="instagram">instagram</label>
+        <input v-model="instagram" class="form-control" id="instagram" type="text" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="pinterest">pinterest</label>
+        <input v-model="pinterest" class="form-control" id="pinterest" type="text" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="linkedin">linkedin</label>
+        <input v-model="linkedin" class="form-control" id="linkedin" type="text" placeholder="">
+      </div>
+
       <div class="form-group">
         <label for="exampleInputFile">LOGO</label>
         <div class="input-group">
@@ -47,36 +69,45 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      name: "",
-      email: "",
-      phone: "",
-      logo: "",
-      fileName: "",
-      description: "",
-      address: "",
-      introduce: ""
+      name: '',
+      email: '',
+      phone: '',
+      logo: '',
+      fileName: '',
+      description: '',
+      address: '',
+      introduce: '',
+
+      facebook: '',
+      twitter: '',
+      instagram: '',
+      pinterest: '',
+      linkedin: ''
     }
   },
   methods: {
-    addImg(event){
+    addImg (event) {
       let file = event.target.files[0]
       var reader = new FileReader()
       reader.readAsDataURL(file)
-      let that = this;
+      let that = this
       this.fileName = file.name
-      reader.onload = function(e) {
-        var url = this.result.substring(this.result.indexOf(",") + 1);
-        that.logo = "data:image/png;base64," + url;
+      reader.onload = function (e) {
+        var url = this.result.substring(this.result.indexOf(',') + 1)
+        that.logo = 'data:image/png;base64,' + url
       }
     },
 
-    doSubmit(){
+    doSubmit () {
       let postData = this.$data
       delete postData.logoShow
       this.$api.subCompany(postData).then(res => {
-        console.log(res)
+        alert(res.msg)
+        if (res.code === 200) {
+          this.$router.push('/Company')
+        }
       })
     }
   },
@@ -89,6 +120,12 @@ export default {
       this.$data.description = res.data.description
       this.$data.address = res.data.address
       this.$data.introduce = res.data.introduce
+
+      this.$data.facebook = res.data.facebook
+      this.$data.twitter = res.data.twitter
+      this.$data.instagram = res.data.instagram
+      this.$data.pinterest = res.data.pinterest
+      this.$data.linkedin = res.data.linkedin
     })
   }
 }

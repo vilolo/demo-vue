@@ -42,31 +42,31 @@ import 'summernote'
 import 'summernote/dist/summernote.css'
 
 export default {
-  data: function(){
+  data: function () {
     return {
       id: 0,
       title: '',
       category_id: '',
       cover: '',
       content: '',
-      fileName: "",
+      fileName: '',
       status: 1
     }
   },
-  mounted: function(){
+  mounted: function () {
     $('#content').summernote({
       height: 500
     })
   },
 
-  activated: function(){
+  activated: function () {
     this.id = this.$route.query.id
 
-    if (typeof(this.id) == "undefined"){
+    if (typeof (this.id) === 'undefined') {
       Object.assign(this.$data, this.$options.data())
       $('#content').summernote('code', '')
-    }else{
-      this.$api.getArticleDetail({id:this.id}).then(res => {
+    } else {
+      this.$api.getArticleDetail({id: this.id}).then(res => {
         this.title = res.data.title
         this.category_id = res.data.category_id
         this.cover = res.data.cover
@@ -78,25 +78,25 @@ export default {
   },
 
   methods: {
-    addImg(event){
+    addImg (event) {
       let file = event.target.files[0]
       var reader = new FileReader()
       reader.readAsDataURL(file)
-      let that = this;
+      let that = this
       this.fileName = file.name
-      reader.onload = function(e) {
-        var url = this.result.substring(this.result.indexOf(",") + 1);
-        that.cover = "data:image/png;base64," + url;
+      reader.onload = function (e) {
+        var url = this.result.substring(this.result.indexOf(',') + 1)
+        that.cover = 'data:image/png;base64,' + url
       }
     },
 
-    doSubmit: function() {
-      this.content = $('#content').summernote('code');
+    doSubmit: function () {
+      this.content = $('#content').summernote('code')
       let postData = this.$data
       delete postData.logoShow
       this.$api.subArticle(postData).then(res => {
         alert(res.msg)
-        if (res.code == 200){
+        if (res.code === 200) {
           this.$router.push('/Article')
         }
       })
@@ -104,4 +104,3 @@ export default {
   }
 }
 </script>
-
