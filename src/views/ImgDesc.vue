@@ -36,7 +36,7 @@
                   </thead>
                   <tbody>
                     <tr v-for="item in tableData" v-bind:key="item.id">
-                      <td><img :src="item.img" height="100" /></td>
+                      <td><img :src="item.img" style="max-width: 150px; max-height: 100px;" /></td>
                       <td>{{item.category_name}}</td>
                       <td>{{item.desc1}}</td>
                       <td>{{item.desc2}}</td>

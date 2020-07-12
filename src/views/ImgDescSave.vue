@@ -24,6 +24,14 @@
       </div>
 
       <div class="form-group">
+        <label>url —— 选择文章</label>
+        <select @change="selArticle" class="custom-select" :key="this.id">
+          <option value="0">--选择文章--</option>
+          <option v-for="(item, i) in articleList" v-bind:value="item.id" v-bind:key="i">{{item.title}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="btn_name">按钮名</label>
         <input v-model="btn_name" class="form-control" id="btn_name" type="text" placeholder="">
       </div>
@@ -74,31 +82,38 @@ export default {
       fileName: "",
       category_id: "",
 
-      categoryList:[]
+      categoryList: [],
+      articleList: []
     }
   },
   methods: {
-    addImg(event){
+    addImg (event) {
       let file = event.target.files[0]
       var reader = new FileReader()
       reader.readAsDataURL(file)
-      let that = this;
+      let that = this
       this.fileName = file.name
-      reader.onload = function(e) {
-        var url = this.result.substring(this.result.indexOf(",") + 1);
-        that.img = "data:image/png;base64," + url;
+      reader.onload = function (e) {
+        var url = this.result.substring(this.result.indexOf(',') + 1)
+        that.img = 'data:image/png;base64,' + url
       }
     },
 
-    doSubmit(){
+    doSubmit () {
       let postData = this.$data
-      delete postData.logoShow
+      //delete postData.logoShow
+      delete postData.categoryList
+      delete postData.articleList
       this.$api.subImgDesc(postData).then(res => {
         alert(res.msg)
-        if (res.code == 200){
+        if (res.code === 200) {
           this.$router.push('/ImgDesc')
         }
       })
+    },
+
+    selArticle: function (e) {
+      this.url = '/index.php/article?id=' + e.target.value
     }
   },
 
@@ -125,6 +140,10 @@ export default {
 
     this.$api.getImgDescCategoryList().then(res => {
       this.categoryList = res.data
+    })
+
+    this.$api.getArticleSelectList().then(res => {
+      this.articleList = res.data
     })
   },
 }
