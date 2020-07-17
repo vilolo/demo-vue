@@ -52,19 +52,22 @@
 <script>
 export default {
   data () {
-      return {
-          username: '',
-          password: ''
-      }
+    return {
+      username: '',
+      password: ''
+    }
   },
   methods: {
-      doLogin: function(){
-          this.$api.doLogin(this.username, this.password).then(res => {
-              if (res.code === 200){
-                  this.$router.push('/')
-              }
-          })
-      }
+    doLogin: function () {
+      this.$api.doLogin(this.username, this.password).then(res => {
+        if (res.code === 200) {
+          localStorage.setItem('token', this.username)
+          this.$router.push('/Company')
+        } else {
+          alert(res.msg)
+        }
+      })
+    }
   },
   mounted: function () {
   }

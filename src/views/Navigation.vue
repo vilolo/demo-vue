@@ -35,14 +35,17 @@
                     <tr v-for="item in tableData" v-bind:key="item.id">
                       <td><span v-if="item.level>0">└</span>{{item.name}}</td>
                       <td>{{item.url}}</td>
-                      <td>{{item.status}}</td>
+                      <td>
+                        <span v-if="item.status!=1" style="color:red;">停用</span>
+                        <span v-if="item.status==1" style="color:green;">启用</span>
+                      </td>
                       <td>{{item.sort}}</td>
                       <td>{{item.created_at}}</td>
                       <td>{{item.updated_at}}</td>
-                      <td><router-link :to="{path:'/NavigationSave',
-                      query:{id:item.id}
-                      }"
-                      class="btn btn-primary">编辑</router-link></td>
+                      <td>
+                        <router-link :to="{path:'/NavigationSave', query:{id:item.id}}" class="btn btn-primary">编辑</router-link>
+                        <span @click="del(item.id)" class="btn btn-danger" >删除</span>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -57,30 +60,41 @@
 import '../assets/plugins/datatables/jquery.dataTables.min.js'
 import '../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'
 export default {
-    data: function(){
-        return {
-            tableData: [],
-            dt: ''
-        }
-    },
-
-    mounted: function(){
-      this.$api.getNavigationList().then(res => {
-        this.tableData = res.data
-      }).then(res => {
-        this.dt = $("#sampleTable").DataTable({
-          ordering: false
-        })
-      })
-    },
-
-    activated: function(){
-      this.$api.getNavigationList().then(res => {
-        this.tableData = res.data
-      }).then(res => {
-        this.dt.reload()
-      })
+  data: function () {
+    return {
+      tableData: [],
+      dt: ''
     }
+  },
+
+  mounted: function () {
+    this.$api.getNavigationList().then(res => {
+      this.tableData = res.data
+    }).then(res => {
+      this.dt = $('#sampleTable').DataTable({
+        ordering: false
+      })
+    })
+  },
+
+  methods: {
+    del: function (did) {
+      if (confirm('确定要删除吗')) {
+        this.$api.delNavigation({id: did}).then(res => {
+          alert(res.msg)
+          location.reload()
+        })
+      }
+    }
+  },
+
+  activated: function () {
+    this.$api.getNavigationList().then(res => {
+      this.tableData = res.data
+    }).then(res => {
+      this.dt.reload()
+    })
+  }
 }
 </script>
 

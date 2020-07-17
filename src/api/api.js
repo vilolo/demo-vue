@@ -87,6 +87,16 @@ export default {
     })
   },
 
+  delNavigation (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/navigation/del'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
   subArticle (data) {
     return axios({
       method: 'post',

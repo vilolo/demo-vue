@@ -79,16 +79,17 @@
 </template>
 
 <script>
-import sidebar from './sidebar';
+import sidebar from './sidebar'
 export default {
-    components: {
-        sidebar
-    },
-    methods: {
-      logout: function(){
-        let res = this.$api.logout()
-        console.log(res)
-      }
+  components: {
+    sidebar
+  },
+  methods: {
+    logout: function () {
+      localStorage.removeItem('token')
+      this.$api.logout()
+      this.$router.push('/')
     }
+  }
 }
 </script>

@@ -29,96 +29,94 @@
 </template>
 <script>
 export default {
-    data: function () {
-        return {
-            curUrl: this.$route.path,
-            menu: [
-                {
-                    name: 'Home',
-                    url: '/Home',
-                    icon: 'fa-laptop',
-                    // new_target: true
-                },
-                {
-                    name: '公司信息',
-                    url: '/Company',
-                    icon: 'fa-laptop'
-                },
-                {
-                    name: '导航菜单配置',
-                    url: '/Navigation',
-                    icon: 'fa-laptop'
-                },
-                {
-                    name: '底部菜单配置',
-                    url: '/FootNavigation',
-                    icon: 'fa-laptop'
-                },
-                {
-                    name: '文章管理',
-                    url: '/Article',
-                    icon: 'fa-laptop',
-                },
-                {
-                    name: '图文配置',
-                    url: '/ImgDesc',
-                    icon: 'fa-laptop',
-                },
-                {
-                    name: '客户留言',
-                    url: '/CustomerMessage',
-                    icon: 'fa-laptop',
-                },
-                {
-                    name: '底部文章链接设置',
-                    url: '/News',
-                    icon: 'fa-laptop',
-                },
-
-
-                // {
-                //     name: '菜单三',
-                //     url: '/login',
-                //     icon: '',
-                //     submenu:[
-                //         {
-                //             name: 'sspp',
-                //             url: '/sspp',
-                //             icon: '',
-                //         }
-                //     ]
-                // },
-                ]
+  data: function () {
+    return {
+      curUrl: this.$route.path,
+      menu: [
+        // {
+        //   name: 'Home',
+        //   url: '/Home',
+        //   icon: 'fa-laptop'
+        //   // new_target: true
+        // },
+        {
+          name: '公司信息',
+          url: '/Company',
+          icon: 'fa-laptop'
+        },
+        {
+          name: '导航菜单配置',
+          url: '/Navigation',
+          icon: 'fa-laptop'
+        },
+        {
+          name: '底部菜单配置',
+          url: '/FootNavigation',
+          icon: 'fa-laptop'
+        },
+        {
+          name: '文章管理',
+          url: '/Article',
+          icon: 'fa-laptop'
+        },
+        {
+          name: '图文配置',
+          url: '/ImgDesc',
+          icon: 'fa-laptop'
+        },
+        {
+          name: '客户留言',
+          url: '/CustomerMessage',
+          icon: 'fa-laptop'
+        },
+        {
+          name: '底部文章链接设置',
+          url: '/News',
+          icon: 'fa-laptop'
         }
-    },
 
-    mounted: function(){
-
-        //导航栏内容
-        "use strict";
-
-        var treeviewMenu = $('.app-menu');
-
-        // Toggle Sidebar
-        $('[data-toggle="sidebar"]').click(function(event) {
-            event.preventDefault();
-            $('.app').toggleClass('sidenav-toggled');
-        });
-
-        // Activate sidebar treeview toggle
-        $("[data-toggle='treeview']").click(function(event) {
-            event.preventDefault();
-            if(!$(this).parent().hasClass('is-expanded')) {
-                treeviewMenu.find("[data-toggle='treeview']").parent().removeClass('is-expanded');
-            }
-            $(this).parent().toggleClass('is-expanded');
-        });
-
-        // Set initial active toggle
-        $("[data-toggle='treeview.'].is-expanded").parent().toggleClass('is-expanded');
-
-        //Activate bootstrip tooltips
-        $("[data-toggle='tooltip']").tooltip();
+      // {
+      //     name: '菜单三',
+      //     url: '/login',
+      //     icon: '',
+      //     submenu:[
+      //         {
+      //             name: 'sspp',
+      //             url: '/sspp',
+      //             icon: '',
+      //         }
+      //     ]
+      // },
+      ]
     }
+  },
+
+  mounted: function () {
+      // 导航栏内容
+      // use strict
+
+      var treeviewMenu = $('.app-menu')
+
+      // Toggle Sidebar
+      $('[data-toggle="sidebar"]').click(function(event) {
+          event.preventDefault();
+          $('.app').toggleClass('sidenav-toggled');
+      });
+
+      // Activate sidebar treeview toggle
+      $("[data-toggle='treeview']").click(function(event) {
+          event.preventDefault();
+          if(!$(this).parent().hasClass('is-expanded')) {
+              treeviewMenu.find("[data-toggle='treeview']").parent().removeClass('is-expanded');
+          }
+          $(this).parent().toggleClass('is-expanded');
+      });
+
+      // Set initial active toggle
+      $("[data-toggle='treeview.'].is-expanded").parent().toggleClass('is-expanded');
+
+      //Activate bootstrip tooltips
+      $("[data-toggle='tooltip']").tooltip();
+  }
 }
 </script>

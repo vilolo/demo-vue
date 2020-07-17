@@ -73,14 +73,14 @@ export default {
   data () {
     return {
       id: 0,
-      desc1: "",
-      desc2: "",
+      desc1: '',
+      desc2: '',
       status: 1,
-      url: "",
+      url: '',
       btn_name: '',
-      img: "",
-      fileName: "",
-      category_id: "",
+      img: '',
+      fileName: '',
+      category_id: '',
 
       categoryList: [],
       articleList: []
@@ -101,7 +101,7 @@ export default {
 
     doSubmit () {
       let postData = this.$data
-      //delete postData.logoShow
+      // delete postData.logoShow
       delete postData.categoryList
       delete postData.articleList
       this.$api.subImgDesc(postData).then(res => {
@@ -117,13 +117,13 @@ export default {
     }
   },
 
-  activated: function (){
+  activated: function () {
     this.id = this.$route.query.id
 
-    if (typeof(this.id) == "undefined"){
+    if (typeof (this.id) === 'undefined') {
       Object.assign(this.$data, this.$options.data())
-    }else{
-      this.$api.getImgDescDetail({id:this.id}).then(res => {
+    } else {
+      this.$api.getImgDescDetail({id: this.id}).then(res => {
         this.desc1 = res.data.desc1
         this.desc2 = res.data.desc2
         this.url = res.data.url
@@ -134,7 +134,7 @@ export default {
       })
     }
 
-    this.$api.getNavigationList({level:0}).then(res => {
+    this.$api.getNavigationList({level: 0}).then(res => {
       this.topLevelList = res.data
     })
 
@@ -145,6 +145,6 @@ export default {
     this.$api.getArticleSelectList().then(res => {
       this.articleList = res.data
     })
-  },
+  }
 }
 </script>

@@ -25,13 +25,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Home,
+      redirect: '/login',
       meta: {
         title: '首页'
       }
     },
     {
       path: '/login',
+      name: 'login',
       component: Login,
       meta: {
         title: '登陆',
@@ -76,6 +77,7 @@ export default new Router({
     {
       path: '/Company',
       component: Company,
+      name: 'company',
       meta: {
         title: 'Company'
       }

@@ -111,7 +111,7 @@ export default {
       })
     }
   },
-  mounted: function () {
+  created: function () {
     this.$api.getCompanyInfo().then(res => {
       this.$data.phone = res.data.phone
       this.$data.email = res.data.email

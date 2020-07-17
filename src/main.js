@@ -44,5 +44,26 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title
   }
-  next()
+
+  if (to.name === 'login') {
+    if (localStorage.getItem('token')) {
+      next({
+        name: 'company'
+      })
+    } else {
+      next()
+    }
+  } else {
+    if (to.meta.noAuth !== true) {
+      if (localStorage.getItem('token') == null) {
+        next({
+          name: 'login'
+        })
+      } else {
+        next()
+      }
+    } else {
+      next()
+    }
+  }
 })
