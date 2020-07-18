@@ -48,7 +48,9 @@
                       <td><router-link :to="{path:'/ImgDescSave',
                       query:{id:item.id}
                       }"
-                      class="btn btn-primary">编辑</router-link></td>
+                      class="btn btn-primary">编辑</router-link>
+                      <span @click="del(item.id)" class="btn btn-danger" >删除</span>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -67,6 +69,17 @@ export default {
     return {
       tableData: [],
       dt: ''
+    }
+  },
+
+  methods: {
+    del: function (did) {
+      if (confirm('确定要删除吗')) {
+        this.$api.delImgDesc({id: did}).then(res => {
+          alert(res.msg)
+          location.reload()
+        })
+      }
     }
   },
 

@@ -157,6 +157,16 @@ export default {
     })
   },
 
+  delImgDesc (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/img-desc/del'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
   getArticleSelectList () {
     return axios({
       method: 'get',
