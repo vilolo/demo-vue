@@ -42,7 +42,10 @@
                       <td>{{item.desc2}}</td>
                       <td>{{item.btn_name}}</td>
                       <td>{{item.url}}</td>
-                      <td>{{item.status}}</td>
+                      <td>
+                        <span v-if="item.status!=1" style="color:red;">停用</span>
+                        <span v-if="item.status==1" style="color:green;">启用</span>
+                      </td>
                       <td>{{item.created_at}}</td>
                       <td>{{item.updated_at}}</td>
                       <td><router-link :to="{path:'/ImgDescSave',

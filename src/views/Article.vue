@@ -36,13 +36,18 @@
                       <td>{{item.id}}</td>
                       <td>{{item.title}}</td>
                       <td><img :src="item.cover" height="100" /></td>
-                      <td>{{item.status}}</td>
+                      <td>
+                        <span v-if="item.status!=1" style="color:red;">停用</span>
+                        <span v-if="item.status==1" style="color:green;">启用</span>
+                      </td>
                       <td>{{item.created_at}}</td>
                       <td>{{item.updated_at}}</td>
                       <td><router-link :to="{path:'/ArticleSave',
                       query:{id:item.id}
                       }"
-                      class="btn btn-primary">编辑</router-link></td>
+                      class="btn btn-primary">编辑</router-link>
+                      <span @click="del(item.id)" class="btn btn-danger" >删除</span>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -72,6 +77,17 @@ export default {
           ordering: false
         })
       })
+    },
+
+    methods: {
+      del: function (did) {
+        if (confirm('确定要删除吗')) {
+          this.$api.delArticle({id: did}).then(res => {
+            alert(res.msg)
+            location.reload()
+          })
+        }
+      }
     },
 
     activated: function(){

@@ -97,6 +97,16 @@ export default {
     })
   },
 
+  delArticle (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/article/del'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+
   subArticle (data) {
     return axios({
       method: 'post',

@@ -29,6 +29,17 @@
             <textarea id="content" v-model="content"></textarea>
           </div>
 
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" value="1" type="radio" id="customRadio1" name="status" v-model="status">
+              <label for="customRadio1" class="custom-control-label">开启</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" value="2"  type="radio" id="customRadio2" name="status" v-model="status">
+              <label for="customRadio2" class="custom-control-label">停用</label>
+            </div>
+          </div>
+
           <div class="card-footer">
             <dev @click="doSubmit" class="btn btn-primary">Submit</dev>
           </div>
