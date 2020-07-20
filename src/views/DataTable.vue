@@ -206,7 +206,9 @@ export default {
         }
     },
     mounted: function(){
-        $('#sampleTable').DataTable();
+        $('#sampleTable').DataTable({
+          'order':[0, 'desc']
+        });
     }
 }
 </script>
