@@ -1,11 +1,11 @@
 import axios from 'axios'
 import qs from 'qs'
 
-let baseUrl = 'http://lcxyii.back/index.php'
+// let baseUrl = 'http://lcxyii.back/index.php'
 
 // let baseUrl = 'http://apitest.local/index.php'
 
-// let baseUrl = 'http://198.35.45.87:9071/index.php'
+let baseUrl = 'http://198.35.45.87:9071/index.php'
 
 export default {
   doLogin (username, password) {

@@ -37,6 +37,11 @@
       </div>
 
       <div class="form-group">
+        <label for="sort">排序</label>
+        <input v-model="sort" class="form-control" id="sort" type="number" placeholder="">
+      </div>
+
+      <div class="form-group">
         <div class="custom-control custom-radio">
           <input class="custom-control-input" value="1" type="radio" id="customRadio1" name="status" v-model="status">
           <label for="customRadio1" class="custom-control-label">开启</label>
@@ -81,6 +86,7 @@ export default {
       img: '',
       fileName: '',
       category_id: '',
+      sort: 20,
 
       categoryList: [],
       articleList: []
@@ -127,6 +133,7 @@ export default {
         this.desc1 = res.data.desc1
         this.desc2 = res.data.desc2
         this.url = res.data.url
+        this.sort = res.data.sort
         this.btn_name = res.data.btn_name
         this.img = res.data.img
         this.category_id = res.data.category_id

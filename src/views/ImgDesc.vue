@@ -28,6 +28,7 @@
                       <th>描述2</th>
                       <th>按钮名</th>
                       <th>url</th>
+                      <th>排序</th>
                       <th>状态</th>
                       <th>创建时间</th>
                       <th>修改时间</th>
@@ -42,6 +43,7 @@
                       <td>{{item.desc2}}</td>
                       <td>{{item.btn_name}}</td>
                       <td>{{item.url}}</td>
+                      <td>{{item.sort}}</td>
                       <td>
                         <span v-if="item.status!=1" style="color:red;">停用</span>
                         <span v-if="item.status==1" style="color:green;">启用</span>
