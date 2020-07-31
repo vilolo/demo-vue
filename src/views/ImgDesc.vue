@@ -93,7 +93,7 @@ export default {
       this.tableData = res.data
     }).then(res => {
       this.dt = $('#sampleTable').DataTable({
-        ordering: false
+        order: [1, 'desc']
       })
     })
   },
