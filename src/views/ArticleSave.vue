@@ -11,6 +11,7 @@
             <label>分类</label>
             <select v-model="category_id" class="custom-select">
               <option value="0">公共分类</option>
+              <option v-for="(item, i) in categoryList" v-bind:value="item.id" v-bind:key="i">{{item.name}}</option>
             </select>
           </div>
           <div class="form-group">
@@ -41,7 +42,7 @@
           </div>
 
           <div class="card-footer">
-            <dev @click="doSubmit" class="btn btn-primary">Submit</dev>
+            <div @click="doSubmit" class="btn btn-primary">Submit</div>
           </div>
         </div>
       </div>
@@ -58,6 +59,7 @@ export default {
       id: 0,
       title: '',
       category_id: '',
+      categoryList: [],
       cover: '',
       content: '',
       fileName: '',
@@ -72,6 +74,10 @@ export default {
 
   activated: function () {
     this.id = this.$route.query.id
+
+    this.$api.getArticleCategory().then(res => {
+      this.categoryList = res.data
+    })
 
     if (typeof (this.id) === 'undefined') {
       Object.assign(this.$data, this.$options.data())

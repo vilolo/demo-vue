@@ -60,6 +60,11 @@ export default {
           icon: 'fa-laptop'
         },
         {
+          name: '文章分类管理',
+          url: '/ArticleCategory',
+          icon: 'fa-laptop'
+        },
+        {
           name: '图文配置',
           url: '/ImgDesc',
           icon: 'fa-laptop'

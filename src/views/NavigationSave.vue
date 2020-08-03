@@ -20,9 +20,17 @@
 
         <div class="form-group">
           <label>url —— 选择文章</label>
-          <select @change="selArticle" class="custom-select" :key="this.id">
+          <select @change="selArticle" v-model="sArticle" class="custom-select" :key="this.id">
             <option value="0">--选择文章--</option>
             <option v-for="(item, i) in articleList" v-bind:value="item.id" v-bind:key="i">{{item.title}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>url —— 选择文章分类列表</label>
+          <select @change="selArticleCategory" v-model="sCategory" class="custom-select" :key="this.id">
+            <option value="0">--选择文章--</option>
+            <option v-for="(item, i) in categoryList" v-bind:value="item.id" v-bind:key="i">{{item.name}}</option>
           </select>
         </div>
 
@@ -57,6 +65,7 @@ export default {
     return {
       topLevelList: [],
       articleList: [],
+      categoryList: [],
 
       id: 0,
       name: '',
@@ -64,12 +73,19 @@ export default {
       level: 0,
       sort: 50,
       pid: 0,
-      status: 1
+      status: 1,
+
+      sArticle: 0,
+      sCategory: 0
     }
   },
 
   activated: function () {
     this.id = this.$route.query.id
+
+    this.$api.getArticleCategory().then(res => {
+      this.categoryList = res.data
+    })
 
     if (typeof (this.id) === 'undefined') {
       Object.assign(this.$data, this.$options.data())
@@ -105,6 +121,12 @@ export default {
 
     selArticle: function (e) {
       this.url = '/index.php/article?id=' + e.target.value
+      this.sCategory = 0
+    },
+
+    selArticleCategory: function (e) {
+      this.url = '/index.php/category-article?id=' + e.target.value
+      this.sArticle = 0
     }
   }
 

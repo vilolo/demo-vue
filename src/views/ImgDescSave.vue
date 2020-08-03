@@ -68,7 +68,7 @@
     <!-- /.card-body -->
 
     <div class="card-footer">
-      <dev @click="doSubmit" class="btn btn-primary">Submit</dev>
+      <div @click="doSubmit" class="btn btn-primary">Submit</div>
     </div>
   </form>
 </template>

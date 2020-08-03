@@ -1,11 +1,11 @@
 import axios from 'axios'
 import qs from 'qs'
 
-// let baseUrl = 'http://lcxyii.back/index.php'
+let baseUrl = 'http://lcxyii.back/index.php'
 
 // let baseUrl = 'http://apitest.local/index.php'
 
-let baseUrl = 'http://198.35.45.87:9071/index.php'
+// let baseUrl = 'http://198.35.45.87:9071/index.php'
 
 export default {
   doLogin (username, password) {
@@ -218,5 +218,40 @@ export default {
     }).then(function (res) {
       return res.data
     })
-  }
+  },
+  getArticleCategory () {
+    return axios({
+      method: 'get',
+      url: baseUrl + '/v1/article/category-list'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+  delArticleCategory (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/article/del-category'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+  getArticleCategoryDetail (data) {
+    return axios({
+      method: 'get',
+      params: data,
+      url: baseUrl + '/v1/article/category-detail'
+    }).then(function (res) {
+      return res.data
+    })
+  },
+  subArticleCategory (data) {
+    return axios({
+      method: 'post',
+      data: qs.stringify(data),
+      url: baseUrl + '/v1/article/category-save'
+    }).then(function (res) {
+      return res.data
+    })
+  },
 }

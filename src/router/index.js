@@ -12,6 +12,8 @@ import Navigation from '../views/Navigation'
 import NavigationSave from '../views/NavigationSave'
 import Article from '../views/Article'
 import ArticleSave from '../views/ArticleSave'
+import ArticleCategory from '../views/ArticleCategory'
+import ArticleCategorySave from '../views/ArticleCategorySave'
 import ImgDesc from '../views/ImgDesc'
 import ImgDescSave from '../views/ImgDescSave'
 import CustomerMessage from '../views/CustomerMessage'
@@ -108,6 +110,20 @@ export default new Router({
       component: ArticleSave,
       meta: {
         title: 'ArticleSave'
+      }
+    },
+    {
+      path: '/ArticleCategory',
+      component: ArticleCategory,
+      meta: {
+        title: 'ArticleCategory'
+      }
+    },
+    {
+      path: '/ArticleCategorySave',
+      component: ArticleCategorySave,
+      meta: {
+        title: 'ArticleCategorySave'
       }
     },
     {
