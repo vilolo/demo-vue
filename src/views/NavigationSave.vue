@@ -83,7 +83,7 @@ export default {
   activated: function () {
     this.id = this.$route.query.id
 
-    this.$api.getArticleCategory().then(res => {
+    this.$api.getSelectArticleCategory().then(res => {
       this.categoryList = res.data
     })
 

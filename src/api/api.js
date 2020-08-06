@@ -1,11 +1,11 @@
 import axios from 'axios'
 import qs from 'qs'
 
-let baseUrl = 'http://lcxyii.back/index.php'
+// let baseUrl = 'http://lcxyii.back/index.php'
 
 // let baseUrl = 'http://apitest.local/index.php'
 
-// let baseUrl = 'http://198.35.45.87:9071/index.php'
+let baseUrl = 'http://198.35.45.87:9071/index.php'
 
 export default {
   doLogin (username, password) {
@@ -227,6 +227,14 @@ export default {
       return res.data
     })
   },
+  getSelectArticleCategory () {
+    return axios({
+      method: 'get',
+      url: baseUrl + '/v1/article/select-category-list'
+    }).then(function (res) {
+      return res.data
+    })
+  },
   delArticleCategory (data) {
     return axios({
       method: 'post',
@@ -253,5 +261,5 @@ export default {
     }).then(function (res) {
       return res.data
     })
-  },
+  }
 }
