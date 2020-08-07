@@ -125,7 +125,7 @@ export default {
     },
 
     selArticleCategory: function (e) {
-      this.url = '/index.php/category-article?id=' + e.target.value
+      this.url = '/index.php/article/category-article?id=' + e.target.value
       this.sArticle = 0
     }
   }
