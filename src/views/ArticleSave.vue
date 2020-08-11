@@ -14,6 +14,12 @@
               <option v-for="(item, i) in categoryList" v-bind:value="item.id" v-bind:key="i">{{item.name}}</option>
             </select>
           </div>
+
+          <div class="form-group">
+            <label for="keyword">关键词</label>
+            <input v-model="keyword" class="form-control" id="keyword" type="text" placeholder="">
+          </div>
+
           <div class="form-group">
             <label for="exampleInputFile">封面</label>
             <div class="input-group">
@@ -63,7 +69,8 @@ export default {
       cover: '',
       content: '',
       fileName: '',
-      status: 1
+      status: 1,
+      keyword: ''
     }
   },
   mounted: function () {
@@ -88,6 +95,7 @@ export default {
         this.category_id = res.data.category_id
         this.cover = res.data.cover
         this.status = res.data.status
+        this.keyword = res.data.keyword
 
         $('#content').summernote('code', res.data.content)
       })

@@ -27,6 +27,14 @@
         </div>
 
         <div class="form-group">
+          <label>url —— 选择文章关键词</label>
+          <select @change="selArticleKeyword" v-model="sArticleKeyword" class="custom-select" :key="this.id">
+            <option value="0">--选择文章关键词--</option>
+            <option v-for="(item, i) in articleKeywordList" v-bind:value="item.keyword" v-bind:key="i">{{item.keyword}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label>url —— 选择文章分类列表</label>
           <select @change="selArticleCategory" v-model="sCategory" class="custom-select" :key="this.id">
             <option value="0">--选择文章--</option>
@@ -66,6 +74,7 @@ export default {
       topLevelList: [],
       articleList: [],
       categoryList: [],
+      articleKeywordList: [],
 
       id: 0,
       name: '',
@@ -76,7 +85,8 @@ export default {
       status: 1,
 
       sArticle: 0,
-      sCategory: 0
+      sCategory: 0,
+      sArticleKeyword: ''
     }
   },
 
@@ -105,6 +115,13 @@ export default {
 
     this.$api.getArticleSelectList().then(res => {
       this.articleList = res.data
+      for (const i in res.data) {
+        if(typeof res.data[i].keyword == "undefined" || res.data[i].keyword == null || res.data[i].keyword == ""){
+          continue
+        }
+        this.articleKeywordList.push(res.data[i])
+      }
+      console.log(this.articleKeywordList)
     })
   },
 
@@ -122,10 +139,18 @@ export default {
     selArticle: function (e) {
       this.url = '/index.php/article?id=' + e.target.value
       this.sCategory = 0
+      this.sArticleKeyword = ''
     },
 
     selArticleCategory: function (e) {
       this.url = '/index.php/article/category-article?id=' + e.target.value
+      this.sArticle = 0
+      this.sArticleKeyword = ''
+    },
+
+    selArticleKeyword: function (e) {
+      this.url = '/index.php/articles/' + e.target.value
+      this.sCategory = 0
       this.sArticle = 0
     }
   }

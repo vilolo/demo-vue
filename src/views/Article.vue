@@ -26,6 +26,7 @@
                       <th>标题</th>
                       <th>封面</th>
                       <th>分类</th>
+                      <th>关键词</th>
                       <th>状态</th>
                       <th>创建时间</th>
                       <th>修改时间</th>
@@ -38,6 +39,7 @@
                       <td>{{item.title}}</td>
                       <td><img :src="item.cover" height="100" /></td>
                       <td>{{item.category_name}}</td>
+                      <td>{{item.keyword}}</td>
                       <td>
                         <span v-if="item.status!=1" style="color:red;">停用</span>
                         <span v-if="item.status==1" style="color:green;">启用</span>
@@ -74,7 +76,6 @@ export default {
     mounted: function(){
       this.$api.getArticleList().then(res => {
         this.tableData = res.data
-        console.log(res.data)
       }).then(res => {
         this.dt = $("#sampleTable").DataTable({
           ordering: false
