@@ -29,7 +29,7 @@
         <div class="form-group">
           <label>url —— 选择文章关键词</label>
           <select @change="selArticleKeyword" v-model="sArticleKeyword" class="custom-select" :key="this.id">
-            <option value="0">--选择文章关键词--</option>
+            <option value="">--选择文章关键词--</option>
             <option v-for="(item, i) in articleKeywordList" v-bind:value="item.keyword" v-bind:key="i">{{item.keyword}}</option>
           </select>
         </div>
@@ -115,6 +115,7 @@ export default {
 
     this.$api.getArticleSelectList().then(res => {
       this.articleList = res.data
+      this.articleKeywordList = []
       for (const i in res.data) {
         if(typeof res.data[i].keyword == "undefined" || res.data[i].keyword == null || res.data[i].keyword == ""){
           continue
