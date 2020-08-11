@@ -7,6 +7,8 @@ import qs from 'qs'
 
 let baseUrl = 'http://198.35.45.87:9071/index.php'
 
+// let baseUrl = 'http://104.168.234.221:8091/index.php'
+
 export default {
   doLogin (username, password) {
     let data = {'username': username, 'password': password}

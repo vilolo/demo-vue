@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">PASSWORD</label>
-                <input class="form-control" v-model="password" type="password" placeholder="Password">
+                <input @keyup.enter="doLogin" class="form-control" v-model="password" type="password" placeholder="Password">
             </div>
             <div class="form-group">
                 <div class="utility">
