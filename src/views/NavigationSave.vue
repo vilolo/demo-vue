@@ -137,19 +137,19 @@ export default {
     },
 
     selArticle: function (e) {
-      this.url = 'index.php/article?id=' + e.target.value
+      this.url = '/index.php/article?id=' + e.target.value
       this.sCategory = 0
       this.sArticleKeyword = ''
     },
 
     selArticleCategory: function (e) {
-      this.url = 'index.php/article/category-article?id=' + e.target.value
+      this.url = '/index.php/article/category-article?id=' + e.target.value
       this.sArticle = 0
       this.sArticleKeyword = ''
     },
 
     selArticleKeyword: function (e) {
-      this.url = 'index.php/articles/' + e.target.value
+      this.url = '/index.php/articles/' + e.target.value
       this.sCategory = 0
       this.sArticle = 0
     }
