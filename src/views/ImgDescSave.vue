@@ -126,7 +126,6 @@ export default {
   activated: function () {
     Object.assign(this.$data, this.$options.data())
     
-
     if (typeof (this.id) !== 'undefined') {
       this.$api.getImgDescDetail({id: this.id}).then(res => {
         this.desc1 = res.data.desc1
