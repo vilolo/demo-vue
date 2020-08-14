@@ -68,17 +68,17 @@ export default {
   },
 
   activated: function () {
-    this.id = this.$route.query.id
-
-    if (typeof (this.id) === 'undefined') {
-      Object.assign(this.$data, this.$options.data())
-    } else {
+    Object.assign(this.$data, this.$options.data())
+    
+    if (typeof (this.id) !== 'undefined') {
       this.$api.getNavigationDetail({id: this.id}).then(res => {
         this.name = res.data.name
         this.url = res.data.url
         this.level = res.data.level
         this.status = res.data.status
       })
+
+      this.id = this.$route.query.id
     }
 
     this.$api.getNavigationList({level: 0}).then(res => {

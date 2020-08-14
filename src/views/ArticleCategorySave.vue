@@ -40,15 +40,14 @@ export default {
   },
 
   activated: function () {
-    this.id = this.$route.query.id
+    Object.assign(this.$data, this.$options.data())
 
-    if (typeof (this.id) === 'undefined') {
-      Object.assign(this.$data, this.$options.data())
-    } else {
+    if (typeof (this.id) !== 'undefined') {
       this.$api.getArticleCategoryDetail({id: this.id}).then(res => {
         this.name = res.data.name
         this.status = res.data.status
       })
+      this.id = this.$route.query.id
     }
   },
 

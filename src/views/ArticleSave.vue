@@ -16,6 +16,11 @@
           </div>
 
           <div class="form-group">
+            <label for="sort">排序值</label>
+            <input v-model="sort" class="form-control" id="sort" type="text" placeholder="">
+          </div>
+
+          <div class="form-group">
             <label for="keyword">关键词</label>
             <input v-model="keyword" class="form-control" id="keyword" type="text" placeholder="">
           </div>
@@ -70,6 +75,7 @@ export default {
       content: '',
       fileName: '',
       status: 1,
+      sort: 50,
       keyword: ''
     }
   },
@@ -80,25 +86,23 @@ export default {
   },
 
   activated: function () {
-    this.id = this.$route.query.id
-
+    Object.assign(this.$data, this.$options.data())
+    
     this.$api.getSelectArticleCategory().then(res => {
       this.categoryList = res.data
     })
 
-    if (typeof (this.id) === 'undefined') {
-      Object.assign(this.$data, this.$options.data())
-      $('#content').summernote('code', '')
-    } else {
+    if (typeof (this.id) !== 'undefined') {
       this.$api.getArticleDetail({id: this.id}).then(res => {
         this.title = res.data.title
         this.category_id = res.data.category_id
         this.cover = res.data.cover
         this.status = res.data.status
         this.keyword = res.data.keyword
-
+        this.sort = res.data.sort
         $('#content').summernote('code', res.data.content)
       })
+      this.id = this.$route.query.id
     }
   },
 

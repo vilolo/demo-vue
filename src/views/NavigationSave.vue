@@ -91,15 +91,15 @@ export default {
   },
 
   activated: function () {
+    Object.assign(this.$data, this.$options.data())
+
     this.id = this.$route.query.id
 
     this.$api.getSelectArticleCategory().then(res => {
       this.categoryList = res.data
     })
 
-    if (typeof (this.id) === 'undefined') {
-      Object.assign(this.$data, this.$options.data())
-    } else {
+    if (typeof (this.id) !== 'undefined') {
       this.$api.getNavigationDetail({id: this.id}).then(res => {
         this.name = res.data.name
         this.url = res.data.url

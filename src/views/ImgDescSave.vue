@@ -124,11 +124,10 @@ export default {
   },
 
   activated: function () {
-    this.id = this.$route.query.id
+    Object.assign(this.$data, this.$options.data())
+    
 
-    if (typeof (this.id) === 'undefined') {
-      Object.assign(this.$data, this.$options.data())
-    } else {
+    if (typeof (this.id) !== 'undefined') {
       this.$api.getImgDescDetail({id: this.id}).then(res => {
         this.desc1 = res.data.desc1
         this.desc2 = res.data.desc2
@@ -139,6 +138,8 @@ export default {
         this.category_id = res.data.category_id
         this.status = res.data.status
       })
+
+      this.id = this.$route.query.id
     }
 
     this.$api.getNavigationList({level: 0}).then(res => {
