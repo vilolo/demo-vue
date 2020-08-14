@@ -41,13 +41,13 @@ export default {
 
   activated: function () {
     Object.assign(this.$data, this.$options.data())
-
-    if (typeof (this.id) !== 'undefined') {
-      this.$api.getArticleCategoryDetail({id: this.id}).then(res => {
+    var tempId = this.$route.query.id
+    if (typeof (tempId) !== 'undefined') {
+      this.$api.getArticleCategoryDetail({id: tempId}).then(res => {
         this.name = res.data.name
         this.status = res.data.status
       })
-      this.id = this.$route.query.id
+      this.id = tempId
     }
   },
 

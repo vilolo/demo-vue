@@ -92,8 +92,9 @@ export default {
       this.categoryList = res.data
     })
 
-    if (typeof (this.id) !== 'undefined') {
-      this.$api.getArticleDetail({id: this.id}).then(res => {
+    var tempId = this.$route.query.id
+    if (typeof (tempId) !== 'undefined') {
+      this.$api.getArticleDetail({id: tempId}).then(res => {
         this.title = res.data.title
         this.category_id = res.data.category_id
         this.cover = res.data.cover
@@ -102,7 +103,7 @@ export default {
         this.sort = res.data.sort
         $('#content').summernote('code', res.data.content)
       })
-      this.id = this.$route.query.id
+      this.id = tempId
     }
   },
 

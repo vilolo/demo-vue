@@ -69,16 +69,15 @@ export default {
 
   activated: function () {
     Object.assign(this.$data, this.$options.data())
-    
-    if (typeof (this.id) !== 'undefined') {
-      this.$api.getNavigationDetail({id: this.id}).then(res => {
+    var tempId = this.$route.query.id
+    if (typeof (tempId) !== 'undefined') {
+      this.$api.getNavigationDetail({id: tempId}).then(res => {
         this.name = res.data.name
         this.url = res.data.url
         this.level = res.data.level
         this.status = res.data.status
       })
-
-      this.id = this.$route.query.id
+      this.id = tempId
     }
 
     this.$api.getNavigationList({level: 0}).then(res => {

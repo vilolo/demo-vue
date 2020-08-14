@@ -125,9 +125,9 @@ export default {
 
   activated: function () {
     Object.assign(this.$data, this.$options.data())
-    
-    if (typeof (this.id) !== 'undefined') {
-      this.$api.getImgDescDetail({id: this.id}).then(res => {
+    var tempId = this.$route.query.id
+    if (typeof (tempId) !== 'undefined') {
+      this.$api.getImgDescDetail({id: tempId}).then(res => {
         this.desc1 = res.data.desc1
         this.desc2 = res.data.desc2
         this.url = res.data.url
@@ -138,7 +138,7 @@ export default {
         this.status = res.data.status
       })
 
-      this.id = this.$route.query.id
+      this.id = tempId
     }
 
     this.$api.getNavigationList({level: 0}).then(res => {
